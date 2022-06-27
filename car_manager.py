@@ -7,14 +7,16 @@ STARTING_MOVE_DISTANCE = 5
 MOVE_INCREMENT = 10
 
 
-class CarManager:
+class CarManager(Turtle):
     def __init__(self):
+        super().__init__()
+        self.penup()
         self.all_cars = []
         self.car_speed = STARTING_MOVE_DISTANCE
+        self.goto(300, random.randint(-250, 250))
 
     def create_cars(self):
-
-        random_chance = random.randint(1, 7)
+        random_chance = random.randint(1, 6)
         if random_chance == 1:
             # car design
             new_car = Turtle("square")
@@ -32,3 +34,8 @@ class CarManager:
 
     def level_upgrade(self):
         self.car_speed += MOVE_INCREMENT
+
+    def reset_car(self):
+        for each_car in self.all_cars:
+            each_car.clear()
+        self.car_speed = STARTING_MOVE_DISTANCE

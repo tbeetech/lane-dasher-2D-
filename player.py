@@ -1,4 +1,3 @@
-# import turtle class from turtle module
 from turtle import Turtle
 
 STARTING_POSITION = (0, -280)
@@ -10,6 +9,7 @@ class Player(Turtle):
     def __init__(self):
         super().__init__()
         self.shape('turtle')
+        self.color('white')
         self.penup()
         self.current_player_pos = self.pos()
         self.go_to_start()
@@ -19,6 +19,14 @@ class Player(Turtle):
         self.forward(MOVE_DISTANCE)
         self.current_player_pos = self.pos()
         print(f'player is @ location:\n*{self.current_player_pos}*')
+
+    def run(self):
+        self.forward(MOVE_DISTANCE)
+        self.current_player_pos = self.pos()
+        print(f'player is @ location:\n*{self.current_player_pos}*')
+
+    def reset_player(self):
+        self.go_to_start()
 
     def go_to_start(self):
         self.goto(STARTING_POSITION)

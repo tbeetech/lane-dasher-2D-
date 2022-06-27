@@ -18,11 +18,9 @@ screen.listen()
 screen.onkey(PLAYER.go_up, "Up")
 screen.onkeypress(PLAYER.run, 'Up')
 
-
 def switch_game_on():
     game_is_on = True
     return game_is_on
-
 
 def all_reset():
     PLAYER.reset_player()
@@ -30,8 +28,7 @@ def all_reset():
     CAR_DEPLOYER.reset_car()
     screen.update()
     run_game(switch_game_on)
-
-
+    
 def run_game(game_is_on):
     while game_is_on:
         time.sleep(0.1)
@@ -47,12 +44,8 @@ def run_game(game_is_on):
             PLAYER.go_to_start()
             CAR_DEPLOYER.level_upgrade()
             SCOREBOARD.increase_level()
-
-
-
-
+            
 run_game(switch_game_on)
-
 screen.onkey(all_reset, 'r')
 
 if screen.exitonclick():
